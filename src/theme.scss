@@ -41,6 +41,6 @@ $mat-tourquise: (
 
 $my-alternate-primary: mat-palette($mat-tourquise);
 $my-alternate-accent: mat-palette($mat-grey, 400);
-$my-alternate-warn: mat-palette($mat-grey);
+$my-alternate-warn: mat-palette($mat-red);
 $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
 @include angular-material-theme($my-alternate-theme);

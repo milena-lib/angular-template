@@ -8,10 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { CustomPipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule,
