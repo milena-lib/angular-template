@@ -1,21 +1,26 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BasePageComponent } from './base-page/base-page.component';
+
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
+import { SharedModule } from '../../shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    BasePageComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
+    HomeRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    FormsModule,    
-    ReactiveFormsModule    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SharedModule { }
+export class HomeModule { }
