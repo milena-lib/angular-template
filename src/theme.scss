@@ -1,0 +1,46 @@
+@import '~@angular/material/theming';
+@include mat-core();
+/* ======== Angular material custom themes ======== */ 
+// $my-custom-primary: mat-palette($mat-deep-purple);
+// $my-custom-accent: mat-palette($mat-pink, 100, 500, A100);
+// $my-custom-warn: mat-palette($mat-lime);
+// $my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
+// @include angular-material-theme($my-custom-theme);
+$mat-tourquise: (
+    50 : #e6faf8,
+    100 : #c0f2ed,
+    200 : #96eae2,
+    300 : #6ce2d6,
+    400 : #4ddbcd,
+    500 : #2dd5c4,
+    600 : #28d0be,
+    700 : #22cab6,
+    800 : #1cc4af,
+    900 : #11baa2,
+    A100 : #e9fffb,
+    A200 : #b6fff3,
+    A400 : #83ffeb,
+    A700 : #69ffe7,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$my-alternate-primary: mat-palette($mat-tourquise);
+$my-alternate-accent: mat-palette($mat-grey, 400);
+$my-alternate-warn: mat-palette($mat-grey);
+$my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+@include angular-material-theme($my-alternate-theme);
