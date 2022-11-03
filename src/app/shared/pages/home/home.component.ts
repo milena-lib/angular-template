@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,27 +7,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  value = 'Clear me';
-  
-  form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    body: new FormControl('', Validators.required)
-  });
-  
-  constructor() { }
+  personFormGroup!: FormGroup;
 
+  constructor(private formBuilder: FormBuilder) { }
+  
   ngOnInit(): void {
-    console.log("home page");
-    debugger;
+    this.personFormGroup = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      age: [null, [Validators.required, Validators.min(18)]]
+    });
   }
   
   get f(){
-    return this.form.controls;
+    return this.personFormGroup.controls;
+  }
+
+  clearField(val: string) {
+    this.personFormGroup.controls[val].setValue('');
   }
   
-  submit(){
-    console.log(this.form.value);
+  onSubmit(){
+    // this.isSubmitted = true;
+    
   }
 
 }

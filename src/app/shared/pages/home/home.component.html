@@ -1,56 +1,54 @@
-
-<h1>Angular 14 Reactive Forms Validation Example - ItSolutionStuff.com</h1>
+<h1>Reactive Forms Validation Example</h1>
     
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="personFormGroup" (ngSubmit)="onSubmit()">
         
     <div>
         <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Clearable input</mat-label>
-            <input matInput type="text"  formControlName="name">
-            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-label>שם פרטי</mat-label>
+            <input matInput type="text"  formControlName="name" autocomplete="off">
+            <button *ngIf="f['name'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField('name')">
               <mat-icon>close</mat-icon>
             </button>
+
+            <mat-error *ngIf="f['name'].errors as error">
+                נא להזין שם 
+            </mat-error>
         </mat-form-field>
-        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
-            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
-            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
-        </div>
-        <!-- <input 
-            formControlName="name"
-            id="name" 
-            type="text" 
-            class="form-control">
-        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
-            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
-            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
-        </div> -->
     </div>
      
     <div>
-        <label for="email">Email</label>
-        <input 
-            formControlName="email"
-            id="email" 
-            type="text" 
-            class="form-control">
-        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
-            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
-        </div>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>מייל</mat-label>
+            <input matInput type="text"  formControlName="email" autocomplete="off">
+            <button *ngIf="f['email'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField('email')">
+              <mat-icon>close</mat-icon>
+            </button>
+
+            <mat-error *ngIf="f['email'].errors && f['email'].errors['required'] as error">
+                נא להזין מייל 
+            </mat-error>
+            <mat-error *ngIf="f['email'].errors && f['email'].errors['email'] as error">
+               נא להזין מייל בפורמט תקין 
+            </mat-error>
+        </mat-form-field>
     </div>
-     
     <div>
-        <label for="body">Body</label>
-        <textarea 
-            formControlName="body"
-            id="body" 
-            type="text" 
-            class="form-control">
-        </textarea>
-        <div *ngIf="f['body'].touched && f['body'].invalid" class="alert alert-danger">
-            <div *ngIf="f['body'].errors && f['body'].errors['required']">Body is required.</div>
-        </div>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>גיל</mat-label>
+            <input matInput type="text" formControlName="age" numbersOnly autocomplete="off">
+            <button *ngIf="f['age'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField('age')">
+              <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="f['age'].errors && f['age'].errors['required'] as errors">
+                נא להזין גיל
+            </mat-error>
+            <mat-error *ngIf="f['age'].errors && f['age'].errors['min'] as errors">
+                לא ניתן להשתמש תחת לגיל 18
+            </mat-error>
+        </mat-form-field>
     </div>
     
-    <button [disabled]="form.invalid" type="submit">Submit</button>
+    <button class="btn-primary" [class.btn-disabled]="personFormGroup.invalid"
+        [disabled]="personFormGroup.invalid" 
+        type="submit">שלח</button>
 </form>

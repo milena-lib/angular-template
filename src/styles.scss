@@ -8,6 +8,7 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+@import url('./styles-material.scss');
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -38,12 +39,10 @@
 $max-width: 100rem;
 
 :root {
-    --primary-color: mat-palette($mat-tourquise);
-    --second-color: mat-palette($mat-grey, 900);
-    --dark-color: mat-palette($mat-grey, 400);
-    --light-color: #f4f4f4;
-    --black-color: #000; 
+    --primary-color: #2dd5c4;
+    --second-color: #000;
     --white-color: #fff;
+    --error-code: #f44336;
 }
 
 ::selection {
@@ -71,7 +70,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     background: var(--white-color);
-    color: var(--dark-color);
+    color: var(--second-color);
     direction: rtl; 
 }
 
@@ -84,13 +83,10 @@ body {
 a {
     color: var(--primary-color);
     text-decoration: none;
-
-    &:hover {
-        color: var(--dark-color);
-    }
 }
 
 a:link, a:hover, a:visited, a:active {
+    color: var(--primary-color);
     text-decoration: underline;
 }
 
@@ -98,15 +94,10 @@ ul {
     list-style: none;
 }
 
-// input {
-//     display: block;
-//     width: 100%;
-//     padding: .4rem;
-//     font-size: 1.2rem;
-//     border: 1px solid #ccc;
-//     outline: none;
-//     margin-bottom: .5rem;
-// }
+input {
+    text-align: right !important;
+}
+
 
 hr {
     height: 1px;
@@ -124,7 +115,7 @@ hr {
 }
 
 table th {
-    background: var(--light-color);
+    background: var(--primary-color);
 }
 
 .btn-block {
@@ -145,6 +136,17 @@ table th {
     z-index: 100;
 }
 
+.container {
+    padding: 1rem;
+}
 
-  
-  
+button.btn-primary {
+    border: 2px solid var(--second-color) !important;
+    background-color: var(--primary-color) !important;
+    color: black !important;
+    padding: 0.5rem;
+}
+
+button.btn-disabled {
+  opacity: 0.5;
+}

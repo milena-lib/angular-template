@@ -7,10 +7,12 @@ import { SharedModule } from '../../shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { NumbersOnlyDirective } from 'src/app/directives/numbers-only.directive';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    NumbersOnlyDirective
   ],
   imports: [
     CommonModule,
