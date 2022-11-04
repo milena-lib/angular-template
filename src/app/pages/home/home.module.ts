@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { SharedModule } from '../../shared.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NumbersOnlyDirective } from 'src/app/directives/numbers-only.directive';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [

@@ -35,7 +35,7 @@
     <div>
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>גיל</mat-label>
-            <input matInput type="text" formControlName="age" numbersOnly autocomplete="off">
+            <input matInput type="number" formControlName="age" numbersOnly autocomplete="off">
             <button *ngIf="f['age'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField('age')">
               <mat-icon>close</mat-icon>
             </button>

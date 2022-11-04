@@ -14,11 +14,12 @@ export class ApiService {
 
   }
 
-  getAllProducts(): Observable<Product[]> {
-      return this.httpClient.get<Product[]>(`${this.url}/Products`);
+  getMovies(paramSearch: string): Observable<any[]> {
+      const moviesUrl = `${this.url}/api/Movies/${paramSearch}`;
+      return this.httpClient.get<any[]>(moviesUrl);
   }
 
-  deleteProduct(id: number): Observable<Product> {
-      return this.httpClient.delete<Product>(`${this.url}/Products/${id}`);
-  }
+  // deleteProduct(id: number): Observable<Product> {
+  //     return this.httpClient.delete<Product>(`${this.url}/Products/${id}`);
+  // }
 }
