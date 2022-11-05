@@ -107,6 +107,10 @@ hr {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+button {
+    cursor: pointer;
+}
   
 .main-container {
     max-width: calc(#{$max-width});

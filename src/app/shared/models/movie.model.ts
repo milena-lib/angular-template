@@ -7,6 +7,7 @@ export interface Show {
     name: string;
     rating: Rating;
     image: Images;
+    summary: string;
 }
 
 export interface Rating {

@@ -1,1 +1,20 @@
-<p>votes works!</p>
+<div class="container" *ngIf="movie">
+    <div class="cast">
+
+    </div>
+    <div class="cast-details">
+        <h1>{{movie.show.name}}</h1>
+        <div>
+            <h2>Description</h2>
+            <div class="description" [innerHTML]="movie.show.summary"></div>
+        </div>
+        <div *ngIf="episodes?.length">
+            <h2>Episodes</h2>
+            <ul>
+                <ol class="episode" *ngFor="let episode of episodes">
+                    #{{episode.number}} {{episode.name}} ({{episode.airdate | date: 'dd/MM/YYYY'}})
+                </ol>
+            </ul>
+        </div>
+    </div>
+</div>

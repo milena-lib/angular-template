@@ -22,7 +22,12 @@ export class ApiService {
   getCast(movieId: string): Observable<any[]> {
     const castUrl = `${this.url}/api/Cast/${movieId}/cast`;
     return this.httpClient.get<any[]>(castUrl);
-}
+  }
+
+  getEpisodes(movieId: string): Observable<any[]> {
+    const castUrl = `${this.url}/api/Cast/${movieId}/episodes`;
+    return this.httpClient.get<any[]>(castUrl);
+  }
 
   // deleteProduct(id: number): Observable<Product> {
   //     return this.httpClient.delete<Product>(`${this.url}/Products/${id}`);
