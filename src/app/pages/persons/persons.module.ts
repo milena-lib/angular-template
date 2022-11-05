@@ -1,8 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+import { PersonsRoutingModule } from './persons-routing.module';
+import { PersonsComponent } from './persons.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -12,12 +12,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    PersonsComponent,
     NumbersOnlyDirective
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    PersonsRoutingModule,
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
@@ -26,4 +26,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HomeModule { }
+export class PersonsModule { }

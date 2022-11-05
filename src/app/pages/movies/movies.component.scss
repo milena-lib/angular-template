@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+    background: var(--primary-color) url('../../../assets/images/road-banner.png') no-repeat;
+    padding: 2rem 2rem 1.5rem;
+    background-size: 100vw 7.5rem;
+    height: 100vh;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.example-card {
+    max-width: 25rem;
+    min-height: 24.5rem;
+}
+
+.movie {
+    width: 14rem;
+    padding: 0.5rem;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.star {
+    color: var(--raiting-color);
+}
+  
+// .example-header-image {
+//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//     background-size: cover;
+// }

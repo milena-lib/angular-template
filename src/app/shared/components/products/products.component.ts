@@ -8,24 +8,10 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  movies: any[] = [];
-
-  constructor(private apiService: ApiService) { }
+  
+  constructor() { }
 
   ngOnInit(): void {
-    this.loadProducts();
+    
   }
-  
-  loadProducts() {
-    this.apiService.getMovies('girls').subscribe(items => {
-      this.movies = items;
-
-      console.log("movies: ", this.movies);
-    });
-  }
-
-  // deleteProduct(id: number) {
-  //   this.apiService.deleteProduct(id).subscribe({ next: () => this.loadProducts(), error: e => alert(e) });
-  // }
-
 }

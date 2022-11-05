@@ -1,0 +1,23 @@
+<div class="container">
+    <app-search (searchParam)="saveSearchParam($event)"></app-search>
+
+    <div class="results" *ngIf="movies">
+        <div class="movie" *ngFor="let movie of movies" (click)="goMovie(movie.show.id)">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{movie.show.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image *ngIf="movie.show.image" [src]="movie.show.image.medium" [alt]="movie.show.name">
+                <mat-card-content>
+                  <span *ngIf="movie.show.rating?.average">
+                    Rating: {{movie.show.rating.average}}<span class="star">*</span>
+                  </span>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+              </mat-card>
+        </div>
+    </div>
+</div>

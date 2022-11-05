@@ -1,0 +1,14 @@
+<!-- <div class="container"> -->
+    <form [formGroup]="moviesFormGroup" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>שם סרט</mat-label>
+            <input matInput type="text" formControlName="search" autocomplete="off">
+            <button *ngIf="f['search'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField('search')">
+            <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button class="btn-primary"
+            type="submit">חפש</button>
+
+    </form>
+<!-- </div> -->
