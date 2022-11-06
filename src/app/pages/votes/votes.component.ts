@@ -16,8 +16,10 @@ export class VotesComponent implements OnInit {
   movieName!: string;
   movie?: Movie;
 
-  cast: Cast[] = [];
+  casts: Cast[] = [];
   episodes: Episode[] = [];
+
+  isVoted: boolean = false;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -46,8 +48,8 @@ export class VotesComponent implements OnInit {
   getCast() {
     if(this.movieId) {
       this.apiService.getCast(this.movieId).subscribe(items => {
-        this.cast = items;
-        console.log("cast: ", this.cast);
+        this.casts = items;
+        console.log("casts: ", this.casts);
       });
     }
   }
@@ -59,6 +61,16 @@ export class VotesComponent implements OnInit {
         console.log("episodes: ", this.episodes);
       });
     }
+  }
+
+  saveVote(movie: Movie) {
+    if(this.isVoted) {
+      return;
+    }
+    
+    console.log("movie vote: ", movie);
+
+    this.isVoted = true;
   }
 
 }

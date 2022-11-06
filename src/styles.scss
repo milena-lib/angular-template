@@ -112,11 +112,11 @@ button {
     cursor: pointer;
 }
   
-.main-container {
-    max-width: calc(#{$max-width});
-    margin: auto;
-    overflow: hidden;
-}
+// .main-container {
+//     max-width: calc(#{$max-width});
+//     margin: auto;
+//     height: 100%;
+// }
 
 table th {
     background: var(--primary-color);

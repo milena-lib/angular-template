@@ -1,9 +1,19 @@
 <div class="container" *ngIf="movie">
-    <div class="cast">
-
+    <div class="result">
+        <img class="vote" src="/assets/images/vote.png" [class.disabled-img]="isVoted" (click)="saveVote(movie)" />
+        <div class="casts">
+            <div class="cast" *ngFor="let cast of casts">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>{{cast.person.name}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image *ngIf="cast.person.image" [src]="cast.person.image.medium" [alt]="cast.person.name">
+                </mat-card>
+            </div>
+        </div>
     </div>
     <div class="cast-details">
-        <h1>{{movie.show.name}}</h1>
+        <div class="title">{{movie.show.name}}</div>
         <div>
             <h2>Description</h2>
             <div class="description" [innerHTML]="movie.show.summary"></div>

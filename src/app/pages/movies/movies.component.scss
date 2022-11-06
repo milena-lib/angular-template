@@ -1,16 +1,33 @@
 .container {
     width: 100%;
-    background: var(--primary-color) url('../../../assets/images/road-banner.png') no-repeat;
+    height: 100%;
+}
+
+.search {
+    width: 100%;
+    background: url('../../../assets/images/road-banner.png') no-repeat;
     padding: 2rem 2rem 1.5rem;
     background-size: 100vw 7.5rem;
-    height: 100vh;
+    box-sizing: border-box;
+    // border:1px solid red;
 }
 
 .results {
+    // border:1px solid blue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5rem;
+}
+
+.quantity-results {
+    padding-right: 2rem;
+    background-color: var(--white-color);
+    margin-bottom: 0.5rem;
+}
+
+.movies {
+    // padding-top: 1rem;
+    background-color: var(--primary-color);
 }
 
 .example-card {

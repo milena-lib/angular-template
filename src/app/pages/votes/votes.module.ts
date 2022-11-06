@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { VotesRoutingModule } from './votes-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { VotesComponent } from './votes.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { VotesComponent } from './votes.component';
   imports: [
     CommonModule,
     VotesRoutingModule,
-    SharedModule
+    SharedModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class VotesModule { }
