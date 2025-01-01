@@ -7,27 +7,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  moviesFormGroup!: FormGroup;
+  showsFormGroup!: FormGroup;
   @Output() searchParam: EventEmitter<string> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.moviesFormGroup = this.formBuilder.group ({
+    this.showsFormGroup = this.formBuilder.group ({
       search: ['']
     });
   }
 
   get f(){
-    return this.moviesFormGroup.controls;
+    return this.showsFormGroup.controls;
   }
 
   onSubmit() {
-    this.searchParam.emit(this.moviesFormGroup.controls['search'].value);
+    debugger;
+    
+    this.searchParam.emit(this.showsFormGroup.controls['search'].value);
   }
 
   clearField(val: string) {
-    this.moviesFormGroup.controls[val].setValue('');
+    this.showsFormGroup.controls[val].setValue('');
   }
 
 }

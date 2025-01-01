@@ -4,7 +4,7 @@ import { ApiService } from 'src/app/core/api.service';
 import { HelperService } from 'src/app/core/helper.service';
 import { Cast } from 'src/app/shared/models/cast.model';
 import { Episode } from 'src/app/shared/models/episodes.model';
-import { Movie } from 'src/app/shared/models/movie.model';
+import { ShowData } from 'src/app/shared/models/show.model';
 
 @Component({
   selector: 'app-votes',
@@ -12,9 +12,9 @@ import { Movie } from 'src/app/shared/models/movie.model';
   styleUrls: ['./votes.component.scss']
 })
 export class VotesComponent implements OnInit {
-  movieId!: string;
-  movieName!: string;
-  movie?: Movie;
+  showId!: string;
+  showName!: string;
+  show?: ShowData;
 
   casts: Cast[] = [];
   episodes: Episode[] = [];
@@ -27,48 +27,48 @@ export class VotesComponent implements OnInit {
     private helper: HelperService) { }
 
   ngOnInit(): void {
-    if(!this.helper.movies.length){
-      this.router.navigate(['/movies']);
+    if(!this.helper.shows.length){
+      this.router.navigate(['/shows']);
       return;
     }
 
-    this.movieId = this.route.snapshot.paramMap.get('id') || "";
-    // this.movieName = this.route.snapshot.paramMap.get('name') || "";
+    this.showId = this.route.snapshot.paramMap.get('id') || "";
+    // this.showName = this.route.snapshot.paramMap.get('name') || "";
 
-    this.getMovie();
+    this.getShow();
     this.getCast();
-    this.getEpisodesByMovie();
+    this.getEpisodesByShow();
   }
 
-  getMovie() {
-    this.movie = this.helper.movies.find(item => item.show.id === +this.movieId);
-    this.movieName = this.movie?.show.name || "";
+  getShow() {
+    this.show = this.helper.shows.find(item => item.show.id === +this.showId);
+    this.showName = this.show?.show.name || "";
   }
 
   getCast() {
-    if(this.movieId) {
-      this.apiService.getCast(this.movieId).subscribe(items => {
+    if(this.showId) {
+      this.apiService.getCast(this.showId).subscribe(items => {
         this.casts = items;
         console.log("casts: ", this.casts);
       });
     }
   }
 
-  getEpisodesByMovie() {
-    if(this.movieId) {
-      this.apiService.getEpisodes(this.movieId).subscribe(items => {
+  getEpisodesByShow() {
+    if(this.showId) {
+      this.apiService.getEpisodes(this.showId).subscribe(items => {
         this.episodes = items;
         console.log("episodes: ", this.episodes);
       });
     }
   }
 
-  saveVote(movie: Movie) {
+  saveVote(show: ShowData) {
     if(this.isVoted) {
       return;
     }
     
-    console.log("movie vote: ", movie);
+    console.log("show vote: ", show);
 
     this.isVoted = true;
   }

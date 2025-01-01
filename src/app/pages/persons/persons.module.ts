@@ -7,6 +7,7 @@ import { PersonsComponent } from './persons.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NumbersOnlyDirective } from 'src/app/directives/numbers-only.directive';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -23,6 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
+    MatAutocompleteModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

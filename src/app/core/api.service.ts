@@ -14,18 +14,18 @@ export class ApiService {
 
   }
 
-  getMovies(paramSearch: string): Observable<any[]> {
-      const moviesUrl = `${this.url}/api/Movies/${paramSearch}`;
-      return this.httpClient.get<any[]>(moviesUrl);
+  getShows(paramSearch: string): Observable<any[]> {
+      const showUrl = `${this.url}/api/Shows/${paramSearch}`;
+      return this.httpClient.get<any[]>(showUrl);
   }
 
-  getCast(movieId: string): Observable<any[]> {
-    const castUrl = `${this.url}/api/Cast/${movieId}/cast`;
+  getCast(showId: string): Observable<any[]> {
+    const castUrl = `${this.url}/api/Cast/${showId}/cast`;
     return this.httpClient.get<any[]>(castUrl);
   }
 
-  getEpisodes(movieId: string): Observable<any[]> {
-    const castUrl = `${this.url}/api/Cast/${movieId}/episodes`;
+  getEpisodes(showId: string): Observable<any[]> {
+    const castUrl = `${this.url}/api/Cast/${showId}/episodes`;
     return this.httpClient.get<any[]>(castUrl);
   }
 

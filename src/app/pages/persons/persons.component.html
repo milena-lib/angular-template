@@ -51,4 +51,14 @@
     <button class="btn-primary" [class.btn-disabled]="personFormGroup.invalid"
         [disabled]="personFormGroup.invalid" 
         type="submit">שלח</button>
+
+        <mat-form-field appearance="fill">
+            <mat-label>דוגמה</mat-label>
+            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
 </form>

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MoviesRoutingModule } from './movies-routing.module';
+import { ShowsRoutingModule } from './shows-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MoviesComponent } from './movies.component';
+import { ShowsComponent } from './shows.component';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [MoviesComponent],
+  declarations: [ShowsComponent],
   imports: [
     CommonModule,
-    MoviesRoutingModule,
+    ShowsRoutingModule,
     SharedModule,
     MatCardModule
   ]
 })
-export class MoviesModule { }
+export class ShowsModule { }

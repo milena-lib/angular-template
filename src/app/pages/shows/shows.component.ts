@@ -3,15 +3,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/api.service';
 import { HelperService } from 'src/app/core/helper.service';
-import { Movie } from 'src/app/shared/models/movie.model';
+import { ShowData } from 'src/app/shared/models/show.model';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  selector: 'app-shows',
+  templateUrl: './shows.component.html',
+  styleUrls: ['./shows.component.scss']
 })
-export class MoviesComponent implements OnInit {
-  movies: Movie[] = [];
+export class ShowsComponent implements OnInit {
+  shows: ShowData[] = [];
 
   constructor(private apiService: ApiService, 
     private router: Router,
@@ -22,19 +22,19 @@ export class MoviesComponent implements OnInit {
 
   saveSearchParam($event: string) {
     const param = $event;
-    this.loadMovies(param);
+    this.loadShows(param);
   }
 
-  loadMovies(param: string) {
-    this.apiService.getMovies(param).subscribe(items => {
-      this.movies = items;
-      this.helper.movies = this.movies;
-      // console.log("movie: ", this.movies);
+  loadShows(param: string) {
+    this.apiService.getShows(param).subscribe(items => {
+      this.shows = items;
+      this.helper.shows = this.shows;
+      // console.log("show: ", this.shows);
     });
   }
 
-  goMovie(movieId: number, movieName: string) {
-    this.router.navigate(['/votes', movieId, movieName]);
+  goShow(showId: number, showName: string) {
+    this.router.navigate(['/votes', showId, showName]);
   }
 
 // deleteProduct(id: number) {

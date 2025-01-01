@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { MaterialModule } from './material.module';
 import { SearchComponent } from './components/search/search.component';
+import { ShowsListComponent } from './components/shows-list/shows-list.component';
 
 @NgModule({
   declarations: [
     BasePageComponent,
     ProductsComponent,
-    SearchComponent
+    SearchComponent,
+    ShowsListComponent
   ],
   imports: [
     CommonModule,

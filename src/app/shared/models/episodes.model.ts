@@ -1,4 +1,4 @@
-import { Rating } from "./movie.model";
+import { Rating } from "./show.model";
 
 export interface Episode {
     id: number;
